@@ -16,14 +16,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 public class MyTextView extends View {
-
     private final String mText;
     private int mTextSize = 15;
     private int mTextColor = Color.WHITE;
     private final Paint mPaint;
-
     private static final String TAG = "MyTextView";
-
 
     // new的时候调用 eg. new MyTextView(context)
     public MyTextView(Context context) {
@@ -53,7 +50,6 @@ public class MyTextView extends View {
     private int sp2px(int sp) {
         return (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getResources().getDisplayMetrics());
     }
-
 
     /**
      * 用于测量
