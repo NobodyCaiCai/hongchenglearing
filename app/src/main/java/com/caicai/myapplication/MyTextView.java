@@ -98,8 +98,7 @@ public class MyTextView extends View {
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
-//        canvas.drawText(mText, getPaddingLeft(), getBaseline(mPaint, (float) getHeight() / 2), mPaint);
-        canvas.drawText(mText, getPaddingLeft(), 0, mPaint);
+        canvas.drawText(mText, getPaddingLeft(), getBaseline(mPaint, (float) getHeight() / 2), mPaint);
     }
 
     /**
