@@ -98,7 +98,8 @@ public class MyTextView extends View {
     @Override
     protected void onDraw(@NonNull Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawText(mText, getPaddingLeft(), getBaseline(mPaint, (float) getHeight() / 2), mPaint);
+//        canvas.drawText(mText, getPaddingLeft(), getBaseline(mPaint, (float) getHeight() / 2), mPaint);
+        canvas.drawText(mText, getPaddingLeft(), 0, mPaint);
     }
 
     /**
@@ -109,7 +110,7 @@ public class MyTextView extends View {
      */
     public static float getBaseline(Paint p, Float height) {
         Paint.FontMetricsInt fontMetrics = p.getFontMetricsInt();
-        return (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom + height;
+        return (float) (fontMetrics.bottom - fontMetrics.top) / 2 - fontMetrics.bottom + height;
     }
 
     /**
