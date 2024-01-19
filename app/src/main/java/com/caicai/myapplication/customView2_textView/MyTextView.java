@@ -1,4 +1,4 @@
-package com.caicai.myapplication;
+package com.caicai.myapplication.customView2_textView;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -14,6 +14,8 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import com.caicai.myapplication.R;
 
 public class MyTextView extends View {
     private final String mText;

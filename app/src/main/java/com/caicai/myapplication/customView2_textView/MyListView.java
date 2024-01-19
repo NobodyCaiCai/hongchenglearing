@@ -1,4 +1,4 @@
-package com.caicai.myapplication;
+package com.caicai.myapplication.customView2_textView;
 
 import android.content.Context;
 import android.util.AttributeSet;

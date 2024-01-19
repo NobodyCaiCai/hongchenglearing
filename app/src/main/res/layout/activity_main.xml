@@ -8,13 +8,14 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-    <com.caicai.myapplication.MyTextView
+    <!-- 自定义textview -->
+    <com.caicai.myapplication.customView2_textView.MyTextView
         android:id= "@+id/custom_textview"
         android:layout_height="wrap_content"
         android:layout_width="wrap_content"
         android:background="#00FF00"
         android:padding="10dp"
-
+        android:visibility="gone"
         app:MyText="custom text view"
         app:MyTextColor="@color/red"
         app:inputType="text"
@@ -23,4 +24,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- 自定义view1： 仿QQ运动步数进度效果 -->
+    <com.caicai.myapplication.customView3_qqStepView.QQStepView
+        android:id="@+id/qqStepView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:borderWidth="6dp"
+        app:stepTextColor="@color/red"
+        app:stepTextSize="16sp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- 自定义view2： 玩转字体变色 -->
+    <com.caicai.myapplication.customView4_colorTextView.ColorTrackTextView
+        android:id="@+id/colorTextView"
+        android:textSize="20sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hello_world"
+        app:originColor="@color/blue"
+        app:changeColor="@color/red"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/colorTextView">
+        <Button
+            android:id="@+id/left_to_right"
+            android:text="@string/from_left_to_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:backgroundTint="@color/red"
+            style="?android:attr/buttonBarButtonStyle" />
+
+        <Button
+            android:id="@+id/right_to_left"
+            android:text="@string/from_right_to_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:backgroundTint="@color/blue"
+            style="?android:attr/buttonBarButtonStyle" />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
