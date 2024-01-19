@@ -45,6 +45,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world"
+        android:visibility="gone"
         app:originColor="@color/blue"
         app:changeColor="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,6 +57,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -78,4 +80,28 @@
             android:backgroundTint="@color/blue"
             style="?android:attr/buttonBarButtonStyle" />
     </LinearLayout>
+
+    <com.caicai.myapplication.customView5_progressBar.ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        app:innerBackground="@color/red"
+        app:outerBackground="@color/blue"
+        app:roundWidth="10dp"
+        app:processTextColor="@color/pink"
+        app:progressTextSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/test_progress_bar_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/test"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/progress_bar" />
 </androidx.constraintlayout.widget.ConstraintLayout>

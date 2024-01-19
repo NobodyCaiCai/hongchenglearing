@@ -1,12 +1,13 @@
 package com.caicai.myapplication
 
 import android.animation.ValueAnimator
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.animation.DecelerateInterpolator
 import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
 import com.caicai.myapplication.customView3_qqStepView.QQStepView
 import com.caicai.myapplication.customView4_colorTextView.ColorTrackTextView
+import com.caicai.myapplication.customView5_progressBar.ProgressBar
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -15,7 +16,22 @@ class MainActivity : AppCompatActivity() {
         // 测试 QQStepView
 //        testQQStepView()
         // 测试ColorTrackTextView
-        testColorTrackTextView()
+//        testColorTrackTextView()
+        // 测试ProgressBar
+        findViewById<Button>(R.id.test_progress_bar_button).setOnClickListener {
+            testProgressBar()
+        }
+    }
+
+    private fun testProgressBar() {
+        val progressBar: ProgressBar = findViewById(R.id.progress_bar)
+        val animator = ValueAnimator.ofFloat(0f, 1f)
+        animator.setDuration(2000)
+        animator.addUpdateListener {
+            val value = it.animatedValue as Float
+            progressBar.setCurProcess(value)
+        }
+        animator.start()
     }
 
     private fun testColorTrackTextView() {
