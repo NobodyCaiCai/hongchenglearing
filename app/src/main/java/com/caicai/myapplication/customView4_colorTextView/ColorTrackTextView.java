@@ -19,7 +19,7 @@ public class ColorTrackTextView extends androidx.appcompat.widget.AppCompatTextV
 
     public enum Direction {
         LEFT_TO_RIGHT,  // changeColor 从左变化到右边
-        RIGHT_TO_LEFT   // originColor 从左变化到右边
+        RIGHT_TO_LEFT   // changeColor 从右变化到左边
     }
 
     public ColorTrackTextView(Context context) {

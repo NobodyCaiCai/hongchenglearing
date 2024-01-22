@@ -32,4 +32,11 @@
         <attr name="progressTextSize" format="dimension"/>
         <attr name="processTextColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="RatingBar">
+        <attr name="startNormal" format="reference"/>
+        <attr name="startFocus" format="reference"/>
+        <attr name="gradeNumber" format="integer"/>
+        <attr name="distanceGap" format="dimension"/>
+    </declare-styleable>
 </resources>

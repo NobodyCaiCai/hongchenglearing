@@ -29,9 +29,9 @@ class MainActivity : AppCompatActivity() {
 //            testProgressBar()
 //        }
         // 测试ShapeView
-        findViewById<Button>(R.id.test_shape_view_button).setOnClickListener {
-            testShapeView()
-        }
+//        findViewById<Button>(R.id.test_shape_view_button).setOnClickListener {
+//            testShapeView()
+//        }
     }
 
     private fun testShapeView() {
