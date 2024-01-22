@@ -85,6 +85,7 @@
         android:id="@+id/progress_bar"
         android:layout_width="200dp"
         android:layout_height="200dp"
+        android:visibility="gone"
         app:innerBackground="@color/red"
         app:outerBackground="@color/blue"
         app:roundWidth="10dp"
@@ -101,7 +102,27 @@
         android:layout_height="wrap_content"
         android:text="@string/test"
         android:layout_marginTop="20dp"
+        android:visibility="gone"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/progress_bar" />
+
+    <com.caicai.myapplication.customView6_shapeView.ShapeView
+        android:id="@+id/shapeView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/test_shape_view_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/test"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/shapeView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

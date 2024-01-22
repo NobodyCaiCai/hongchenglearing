@@ -2,14 +2,21 @@ package com.caicai.myapplication
 
 import android.animation.ValueAnimator
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
 import android.view.animation.DecelerateInterpolator
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
+import com.caicai.myapplication.customView6_shapeView.ShapeView
 import com.caicai.myapplication.customView3_qqStepView.QQStepView
 import com.caicai.myapplication.customView4_colorTextView.ColorTrackTextView
 import com.caicai.myapplication.customView5_progressBar.ProgressBar
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        const val TAG = "MainActivity"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -18,9 +25,26 @@ class MainActivity : AppCompatActivity() {
         // 测试ColorTrackTextView
 //        testColorTrackTextView()
         // 测试ProgressBar
-        findViewById<Button>(R.id.test_progress_bar_button).setOnClickListener {
-            testProgressBar()
+//        findViewById<Button>(R.id.test_progress_bar_button).setOnClickListener {
+//            testProgressBar()
+//        }
+        // 测试ShapeView
+        findViewById<Button>(R.id.test_shape_view_button).setOnClickListener {
+            testShapeView()
         }
+    }
+
+    private fun testShapeView() {
+        val shapeView = findViewById<ShapeView>(R.id.shapeView)
+        val handler = Handler(Looper.getMainLooper())
+        val updateUiRunnable: Runnable = object : Runnable {
+            override fun run() {
+                Log.i(TAG, "update shapeView")
+                shapeView.exchangeShape();
+                handler.postDelayed(this, 1000)
+            }
+        }
+        handler.postDelayed(updateUiRunnable, 1000)
     }
 
     private fun testProgressBar() {
