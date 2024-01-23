@@ -134,10 +134,36 @@
         android:layout_height="wrap_content"
         android:padding="3dp"
         android:background="@color/yellow"
+        android:visibility="gone"
         app:gradeNumber="5"
         app:distanceGap="2dp"
         app:startNormal="@drawable/star_normal"
         app:startFocus="@drawable/star_pressed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.caicai.myapplication.customView8_LetterSideBar.LetterSideBar
+        android:id="@+id/letter_side_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="20dp"
+        app:paintSize="5dp"
+        app:paintChangeColor="@color/blue"
+        app:paintNormalColor="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <TextView
+        android:id="@+id/text_view"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:textColor="@color/blue"
+        android:background="@color/yellow"
+        android:text="@string/test_letter"
+        android:gravity="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

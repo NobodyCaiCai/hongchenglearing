@@ -18,7 +18,6 @@ import androidx.annotation.Nullable;
 import com.caicai.myapplication.R;
 
 public class RatingBar extends View {
-
     private static final String TAG = "RatingBar";
     private final Bitmap mStartNormal;
     private final Bitmap mStartFocus;

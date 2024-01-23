@@ -5,13 +5,16 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.view.animation.DecelerateInterpolator
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.caicai.myapplication.customView6_shapeView.ShapeView
 import com.caicai.myapplication.customView3_qqStepView.QQStepView
 import com.caicai.myapplication.customView4_colorTextView.ColorTrackTextView
 import com.caicai.myapplication.customView5_progressBar.ProgressBar
+import com.caicai.myapplication.customView8_LetterSideBar.LetterSideBar
 
 class MainActivity : AppCompatActivity() {
     companion object {
@@ -32,6 +35,17 @@ class MainActivity : AppCompatActivity() {
 //        findViewById<Button>(R.id.test_shape_view_button).setOnClickListener {
 //            testShapeView()
 //        }
+        // 测试 LetterSideBar
+        val textView: TextView = findViewById(R.id.text_view)
+        val letterSideBar: LetterSideBar = findViewById(R.id.letter_side_bar)
+        letterSideBar.setOnLetterTouchListener { letter, isTouch ->
+            if (isTouch == true) {
+                textView.visibility = View.VISIBLE
+                textView.text = letter
+            } else {
+                textView.visibility = View.GONE
+            }
+        }
     }
 
     private fun testShapeView() {
