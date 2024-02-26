@@ -1,4 +1,4 @@
-package com.caicai.myapplication;
+package com.caicai.myapplication.customView9_tagLayout;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.caicai.myapplication.R;
 
 import java.util.List;
 
@@ -272,7 +274,7 @@ public class TagCloudView extends ViewGroup{
             // + marginLeft 保证最右侧与 ViewGroup 右边距有边界
             if (totalWidth + mTagBorderHor + mViewBorder > sizeWidth) {
                 totalWidth = mViewBorder;
-                totalHeight += mTagBorderVer + childWidth;
+                totalHeight += mTagBorderVer + childHeight;
                 child.layout(
                         totalWidth,
                         totalHeight - childHeight,

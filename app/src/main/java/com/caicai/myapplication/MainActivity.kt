@@ -14,6 +14,7 @@ import com.caicai.myapplication.customView3_qqStepView.QQStepView
 import com.caicai.myapplication.customView4_colorTextView.ColorTrackTextView
 import com.caicai.myapplication.customView5_progressBar.ProgressBar
 import com.caicai.myapplication.customView6_shapeView.ShapeView
+import com.caicai.myapplication.customView9_tagLayout.TagCloudView
 
 
 class MainActivity : AppCompatActivity(), TagCloudView.OnTagClickListener {
@@ -136,7 +137,7 @@ class MainActivity : AppCompatActivity(), TagCloudView.OnTagClickListener {
     }
 }
 
-//
+
 //class MainActivity : AppCompatActivity() {
 //    companion object {
 //        const val TAG = "MainActivity"
@@ -169,71 +170,71 @@ class MainActivity : AppCompatActivity(), TagCloudView.OnTagClickListener {
 ////        }
 //    }
 //
-//    private fun testShapeView() {
-//        val shapeView = findViewById<ShapeView>(R.id.shapeView)
-//        val handler = Handler(Looper.getMainLooper())
-//        val updateUiRunnable: Runnable = object : Runnable {
-//            override fun run() {
-//                Log.i(TAG, "update shapeView")
-//                shapeView.exchangeShape();
-//                handler.postDelayed(this, 1000)
-//            }
-//        }
-//        handler.postDelayed(updateUiRunnable, 1000)
-//    }
-//
-//    private fun testProgressBar() {
-//        val progressBar: ProgressBar = findViewById(R.id.progress_bar)
-//        val animator = ValueAnimator.ofFloat(0f, 1f)
-//        animator.setDuration(2000)
-//        animator.addUpdateListener {
-//            val value = it.animatedValue as Float
-//            progressBar.setCurProcess(value)
-//        }
-//        animator.start()
-//    }
-//
-//    private fun testColorTrackTextView() {
-//        val leftToRightButton = findViewById<Button>(R.id.left_to_right)
-//        val rightToLeftButton = findViewById<Button>(R.id.right_to_left)
-//        leftToRightButton.setOnClickListener { fromLeftToRight() }
-//        rightToLeftButton.setOnClickListener { fromRightToLeft() }
-//    }
-//
-//    private fun fromLeftToRight() {
-//        val colorTrackTextView: ColorTrackTextView = findViewById(R.id.colorTextView)
-//        val valueAnimator = ValueAnimator.ofFloat(0f, 1f)
-//        valueAnimator.setDuration(2000)
-//        colorTrackTextView.setDirection(ColorTrackTextView.Direction.LEFT_TO_RIGHT)
-//        valueAnimator.addUpdateListener {
-//            val values = it.animatedValue as Float
-//            colorTrackTextView.setCurrentProgress(values)
-//        }
-//        valueAnimator.start()
-//    }
-//
-//    private fun fromRightToLeft() {
-//        val colorTrackTextView: ColorTrackTextView = findViewById(R.id.colorTextView)
-//        val valueAnimator = ValueAnimator.ofFloat(0f, 1f)
-//        valueAnimator.setDuration(2000)
-//        colorTrackTextView.setDirection(ColorTrackTextView.Direction.RIGHT_TO_LEFT)
-//        valueAnimator.addUpdateListener {
-//            val values = it.animatedValue as Float
-//            colorTrackTextView.setCurrentProgress(values)
-//        }
-//        valueAnimator.start()
-//    }
-//
-//    private fun testQQStepView() {
-//        val qqStepView: QQStepView = findViewById(R.id.qqStepView)
-//        qqStepView.setStepMax(10000)
-//        val valueAnimator: ValueAnimator = ValueAnimator.ofInt(0, 8000)
-//        valueAnimator.setDuration(3000L)
-//        valueAnimator.interpolator = DecelerateInterpolator()
-//        valueAnimator.addUpdateListener { animatorValue ->
-//            val curStep = animatorValue.animatedValue as Int
-//            qqStepView.setCurrentStep(curStep)
-//        }
-//        valueAnimator.start()
-//    }
+////    private fun testShapeView() {
+////        val shapeView = findViewById<ShapeView>(R.id.shapeView)
+////        val handler = Handler(Looper.getMainLooper())
+////        val updateUiRunnable: Runnable = object : Runnable {
+////            override fun run() {
+////                Log.i(TAG, "update shapeView")
+////                shapeView.exchangeShape();
+////                handler.postDelayed(this, 1000)
+////            }
+////        }
+////        handler.postDelayed(updateUiRunnable, 1000)
+////    }
+////
+////    private fun testProgressBar() {
+////        val progressBar: ProgressBar = findViewById(R.id.progress_bar)
+////        val animator = ValueAnimator.ofFloat(0f, 1f)
+////        animator.setDuration(2000)
+////        animator.addUpdateListener {
+////            val value = it.animatedValue as Float
+////            progressBar.setCurProcess(value)
+////        }
+////        animator.start()
+////    }
+////
+////    private fun testColorTrackTextView() {
+////        val leftToRightButton = findViewById<Button>(R.id.left_to_right)
+////        val rightToLeftButton = findViewById<Button>(R.id.right_to_left)
+////        leftToRightButton.setOnClickListener { fromLeftToRight() }
+////        rightToLeftButton.setOnClickListener { fromRightToLeft() }
+////    }
+////
+////    private fun fromLeftToRight() {
+////        val colorTrackTextView: ColorTrackTextView = findViewById(R.id.colorTextView)
+////        val valueAnimator = ValueAnimator.ofFloat(0f, 1f)
+////        valueAnimator.setDuration(2000)
+////        colorTrackTextView.setDirection(ColorTrackTextView.Direction.LEFT_TO_RIGHT)
+////        valueAnimator.addUpdateListener {
+////            val values = it.animatedValue as Float
+////            colorTrackTextView.setCurrentProgress(values)
+////        }
+////        valueAnimator.start()
+////    }
+////
+////    private fun fromRightToLeft() {
+////        val colorTrackTextView: ColorTrackTextView = findViewById(R.id.colorTextView)
+////        val valueAnimator = ValueAnimator.ofFloat(0f, 1f)
+////        valueAnimator.setDuration(2000)
+////        colorTrackTextView.setDirection(ColorTrackTextView.Direction.RIGHT_TO_LEFT)
+////        valueAnimator.addUpdateListener {
+////            val values = it.animatedValue as Float
+////            colorTrackTextView.setCurrentProgress(values)
+////        }
+////        valueAnimator.start()
+////    }
+////
+////    private fun testQQStepView() {
+////        val qqStepView: QQStepView = findViewById(R.id.qqStepView)
+////        qqStepView.setStepMax(10000)
+////        val valueAnimator: ValueAnimator = ValueAnimator.ofInt(0, 8000)
+////        valueAnimator.setDuration(3000L)
+////        valueAnimator.interpolator = DecelerateInterpolator()
+////        valueAnimator.addUpdateListener { animatorValue ->
+////            val curStep = animatorValue.animatedValue as Int
+////            qqStepView.setCurrentStep(curStep)
+////        }
+////        valueAnimator.start()
+////    }
 //}

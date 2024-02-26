@@ -11,3 +11,9 @@ note:
    4. 在自定义view中获取自定义属性
    5. 处理onMeasure
    6. 处理onDraw
+4. 自定义viewGroup步骤：
+   1. onMeasure():
+      a. for循环测量子view；
+      b. 根据子view计算和指定布局
+   2. onLayout():
+      a. for循环摆放所有的子view
