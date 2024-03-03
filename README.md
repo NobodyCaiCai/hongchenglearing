@@ -17,3 +17,4 @@ note:
       b. 根据子view计算和指定布局
    2. onLayout():
       a. for循环摆放所有的子view
+   3. 如果要绘制，需要重写dispatchDraw

@@ -1,10 +1,12 @@
 package com.caicai.myapplication.customView9_tagLayout;
 
 import android.content.Context;
+import android.graphics.Canvas;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +14,10 @@ import java.util.List;
 public class TagLayout extends ViewGroup {
 
     private static final String TAG = "TagLayout";
-    private List<List<View>> mChildViews = new ArrayList<>();
+    private final List<List<View>> mChildViews = new ArrayList<>();
     private ArrayList<View> mChilds = new ArrayList<>();
+
+    private BaseAdapter mAdapter;
 
     public TagLayout(Context context) {
         super(context);
@@ -46,7 +50,7 @@ public class TagLayout extends ViewGroup {
 
         int width = MeasureSpec.getSize(widthMeasureSpec);
         int height = getPaddingTop() + getPaddingBottom();
-        int lineWidth = getPaddingLeft();
+        int curWidth = getPaddingLeft();
         int childCount = getChildCount();
         int maxHeight = height;
 
@@ -59,18 +63,16 @@ public class TagLayout extends ViewGroup {
             int rightMargin = layoutParams.rightMargin;
             int topMargin = layoutParams.topMargin;
             int bottomMargin = layoutParams.bottomMargin;
-            int curWidth = lineWidth + childWidth + getPaddingRight() + leftMargin + rightMargin;
+            curWidth = curWidth + childWidth + getPaddingRight() + leftMargin + rightMargin;
             maxHeight = Math.max(childHeight + topMargin + bottomMargin, maxHeight);
-
             if (curWidth > width) {
                 // 换行
                 height += maxHeight;
                 maxHeight = 0;
-                lineWidth = getPaddingLeft();
+                curWidth = getPaddingLeft();
                 mChildViews.add(new ArrayList<>(mChilds));
                 mChilds = new ArrayList<>();
             } else {
-                lineWidth += childWidth;
                 mChilds.add(child);
             }
         }
@@ -79,16 +81,33 @@ public class TagLayout extends ViewGroup {
             mChildViews.add(new ArrayList<>(mChilds));
             mChilds = new ArrayList<>();
         }
-        Log.i(TAG, "mChildViews.size: " + mChildViews.size());
         setMeasuredDimension(width, height);
     }
 
     // 参考线性布局 相对布局，都有自己的LayoutParams
     //  public static class LayoutParams extends ViewGroup.MarginLayoutParams {
     // 用于自定义自己的属性，这里只用了margin这一个属性
-    @Override
+//    @Override
     public LayoutParams generateLayoutParams(AttributeSet attrs) {
         return new MarginLayoutParams(getContext(), attrs);
+    }
+
+    @Override
+    protected LayoutParams generateLayoutParams(LayoutParams p)  {
+        if (p instanceof MarginLayoutParams) {
+            return new MarginLayoutParams(((MarginLayoutParams) p));
+        }
+        return new MarginLayoutParams(p);
+    }
+
+    /**
+     * java.lang.ClassCastException: android.view.ViewGroup$LayoutParams
+     * cannot be cast to android.view.ViewGroup$MarginLayoutParams
+     * 原因：https://www.jianshu.com/p/aaa5956be917
+     */
+    @Override
+    protected LayoutParams generateDefaultLayoutParams() {
+        return new MarginLayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
     }
 
     @Override
@@ -98,7 +117,6 @@ public class TagLayout extends ViewGroup {
 
         for (List<View> mChildView : mChildViews) {
             curSize = mChildView.size();
-            Log.i(TAG, "curSize: " + curSize);
             left = getPaddingLeft();
             maxHeight = 0;
             for (int i = 0; i < curSize; i++) {
@@ -106,22 +124,39 @@ public class TagLayout extends ViewGroup {
                 MarginLayoutParams layoutParams = (MarginLayoutParams) childView.getLayoutParams();
                 leftMargin = layoutParams.leftMargin;
                 topMargin = layoutParams.topMargin;
-                bottomMargin = layoutParams.bottomMargin;
                 int width = childView.getMeasuredWidth();
                 int height = childView.getMeasuredHeight();
                 left += leftMargin;
                 if (i == 0) {
                     top += topMargin;
                 }
-                right = left + width;
-                bottom = top + height;
-                Log.i(TAG, "left: " + left + ", top: " + top + ", right: " + right + ", bottom: " + bottom);
-                maxHeight = Math.max(maxHeight, height + topMargin + bottomMargin);
+                right = left + width + layoutParams.rightMargin;
+                bottom = top + height + layoutParams.bottomMargin;
+                maxHeight = Math.max(maxHeight, height);
                 childView.layout(left, top, right, bottom);
-                left += width;
+                left = right;
             }
-            top += mChildView.get(0).getMeasuredHeight() + topMargin;
+            top += maxHeight + topMargin;
         }
+    }
+
+    public void setAdapter(BaseAdapter adapter) {
+        if (adapter == null) {
+            return;
+        }
+
+        removeAllViews();
+        mAdapter = adapter;
+        for (int i = 0; i < adapter.getCount(); i++) {
+            View childView = adapter.getView(i, this);
+            addView(childView);
+        }
+        postInvalidate();
+    }
+
+    @Override
+    protected void dispatchDraw(@NonNull Canvas canvas) {
+        super.dispatchDraw(canvas);
     }
 }
 
